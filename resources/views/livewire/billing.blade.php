@@ -6,7 +6,7 @@
                     <div class="col-xl-6 mb-xl-0 mb-4">
                         <div class="card bg-transparent shadow-xl">
                             <div class="overflow-hidden position-relative border-radius-xl"
-                                style="background-image: url('../assets/img/curved-images/curved14.jpg');">
+                                style="background-image: url('../assets/img/music/music002.jpg');">
                                 <span class="mask bg-gradient-dark"></span>
                                 <div class="card-body position-relative z-index-1 p-3">
                                     <i class="fas fa-wifi text-white p-2"></i>

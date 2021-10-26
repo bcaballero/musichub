@@ -5,7 +5,7 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
             <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="...">
-            <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
+            <span class="ms-1 font-weight-bold">{{ config('app.name') }}</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
