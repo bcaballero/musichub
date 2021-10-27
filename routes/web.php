@@ -14,8 +14,8 @@ use App\Http\Livewire\Profile;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 
-use App\Http\Livewire\LaravelExamples\UserProfile;
-use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\Admin\UserProfile;
+use App\Http\Livewire\Admin\UserManagement;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,8 +36,8 @@ Route::get('/sign-up', SignUp::class)->name('sign-up');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
-    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/admin/user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/admin/user-management', UserManagement::class)->name('user-management');
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/rtl', Rtl::class)->name('rtl');

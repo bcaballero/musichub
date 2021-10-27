@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\LaravelExamples;
+namespace App\Http\Livewire\Admin;
 use App\Models\User;
 
 use Livewire\Component;
