@@ -36,7 +36,7 @@ Route::get('/sign-up', SignUp::class)->name('sign-up');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/admin/user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/my-profile', UserProfile::class)->name('my-profile');
     Route::get('/admin/user-management', UserManagement::class)->name('user-management');
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/billing', Billing::class)->name('billing');
