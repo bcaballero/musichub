@@ -16,10 +16,20 @@
                         <div>
                             <h5 class="mb-0">All Users</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        <a href="{{ route('user-create') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
+                <div class="card-body pt-4 p-3">
+                @if ($showSuccesNotification)
+                    <div wire:model="showSuccesNotification"
+                        class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+                        <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
+                        <span
+                            class="alert-text text-white">{{ __('New user was created') }}</span>
+                        <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                @endif
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
@@ -67,7 +77,7 @@
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">
                                             @if($user->isadmin)
-                                            <span class="badge badge-sm bg-gradient-success">Admin</span>
+                                            <span class="badge badge-sm bg-gradient-info">Admin</span>
                                             @else
                                             <span class="badge badge-sm bg-gradient-success">Member</span>
                                             @endif

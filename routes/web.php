@@ -16,6 +16,7 @@ use App\Http\Livewire\StaticSignUp;
 
 use App\Http\Livewire\Admin\UserProfile;
 use App\Http\Livewire\Admin\UserManagement;
+use App\Http\Livewire\Admin\UserCreate;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,7 @@ Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/my-profile', UserProfile::class)->name('my-profile');
-    Route::get('/admin/user-management', UserManagement::class)->name('user-management');
+    
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/rtl', Rtl::class)->name('rtl');
@@ -47,4 +48,6 @@ Route::middleware('auth')->group(function () {
 
     // Admin portal
     Route::get('/admin', Login::class)->name('adminlogin');
+    Route::get('/admin/user-management', UserManagement::class)->name('user-management');
+    Route::get('/admin/user-create', UserCreate::class)->name('user-create');
 });
