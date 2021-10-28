@@ -13,8 +13,10 @@ class UserManagement extends Component
     {
         $this->showSuccesNotification = session()->get('success');
 
+        $users = User::paginate(5);
+
         return view('livewire.admin.user-management', [
-            'users' => User::paginate(10)
+            'users' => $users
         ]);
     }
 }
