@@ -19,7 +19,6 @@
                         <a href="{{ route('user-create') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
                     </div>
                 </div>
-                <div class="card-body pt-4 p-3">
                 @if ($showSuccesNotification)
                     <div wire:model="showSuccesNotification"
                         class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
@@ -30,6 +29,7 @@
                         </button>
                     </div>
                 @endif
+                <div class="card-body pt-4 p-3">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
@@ -87,7 +87,7 @@
                                         <span class="text-secondary text-xs font-weight-bold">{{ $user->created_at }}</span>
                                     </td> -->
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                        <a href="{{ route('user-update') }}?id={{$user->id}}" class="mx-3" data-bs-toggle="tooltip"
                                             data-bs-original-title="Edit user">
                                             <i class="fas fa-user-edit text-secondary"></i>
                                         </a>

@@ -17,6 +17,7 @@ use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Admin\UserProfile;
 use App\Http\Livewire\Admin\UserManagement;
 use App\Http\Livewire\Admin\UserCreate;
+use App\Http\Livewire\Admin\UserUpdate;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +51,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', Login::class)->name('adminlogin');
     Route::get('/admin/user-management', UserManagement::class)->name('user-management');
     Route::get('/admin/user-create', UserCreate::class)->name('user-create');
+    Route::get('/admin/user-update', UserUpdate::class)->name('user-update');
 });

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserCreate extends Component
 {
-    // public $user;
     public $name = '';
     public $email = '';
     public $password = '';
@@ -19,21 +18,12 @@ class UserCreate extends Component
 
     protected $rules = [
         'name' => 'required|max:40|min:3',
-        'email' => 'required|email:rfc,dns',
+        'email' => 'required|email:rfc,dns|unique:App\Models\User,email',
         'phone' => 'required|digits:11',
         'about' => 'max:200',
-        'location' => 'min:3'
+        'location' => 'min:3',
+        'password' => 'required|min:8'
     ];
-
-    /*public function mount($post) { 
-        $this->name     = $post->name;
-        $this->email    = $post->email;
-        $this->password = $post->password;
-        $this->isadmin  = $post->isadmin;
-        $this->phone    = $post->phone;
-        $this->about    = $post->about;
-        $this->location = $post->location;
-    }*/
 
     public function save()
     {
