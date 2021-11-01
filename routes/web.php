@@ -22,6 +22,8 @@ use App\Http\Livewire\Admin\MusicManagement;
 use App\Http\Livewire\Admin\MusicCreate;
 use App\Http\Livewire\Admin\MusicUpdate;
 use App\Http\Livewire\Admin\MusicRemove;
+
+use App\Http\Livewire\BrowseMusic;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,12 +35,13 @@ use App\Http\Livewire\Admin\MusicRemove;
 |
 */
 
-Route::get('/', Login::class)->name('login');
+Route::get('/', BrowseMusic::class)->name('browse-music');
 Route::get('/login', Login::class)->name('login');
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 
+Route::get('/browse-music', BrowseMusic::class)->name('browse-music');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

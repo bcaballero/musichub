@@ -53,6 +53,18 @@
                 {{ $slot }}
                 @include('layouts.footers.guest.with-socials')
             </div>
+        @elseif (!auth()->check() && in_array(request()->route()->getName(),['browse-music'],))
+            @include('layouts.navbars.guest.sidebar')
+            @include('layouts.navbars.guest.nav')
+            @include('components.plugins.fixed-plugin')
+            {{ $slot }}
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        @include('layouts.footers.auth.footer')
+                    </div>
+                </div>
+            </main>
         @endif
     @endguest
 
