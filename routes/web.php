@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\UserUpdate;
 use App\Http\Livewire\Admin\MusicManagement;
 use App\Http\Livewire\Admin\MusicCreate;
 use App\Http\Livewire\Admin\MusicUpdate;
+use App\Http\Livewire\Admin\MusicRemove;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,4 +59,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/music-management', MusicManagement::class)->name('music-management');
     Route::get('/admin/music-create', MusicCreate::class)->name('music-create');
     Route::get('/admin/music-update', MusicUpdate::class)->name('music-update');
+    Route::get('/admin/music-delete', MusicRemove::class)->name('music-delete');
 });
