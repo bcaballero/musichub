@@ -59,30 +59,37 @@
                         </div>
                         @error('about') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="user-password" class="form-control-label">{{ __('Password') }}</label>
+                        <div class="@error('password') border border-danger rounded-3 @enderror">
+                            <input wire:model="password" class="form-control" type="password" id="user-password">
+                        </div>
+                        @error('password') <div class="text-danger">{{ $message }}</div> @enderror
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="user-password" class="form-control-label">{{ __('Password') }}</label>
-                                <div class="@error('password') border border-danger rounded-3 @enderror">
-                                    <input wire:model="password" class="form-control" type="password" id="user-password">
-                                </div>
-                                @error('password') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="@error('isadmin')border border-danger rounded-3 @enderror">
+                            <div>
                                 <div class="form-check">
-                                    <label for="" class="form-control-label">&nbsp;</label>
-                                    <div class="@error('isadmin') border border-danger rounded-3 @enderror">
-                                        <input wire:model="isadmin" class="form-check-input" type="checkbox" value="" id="user-isadmin" />
+                                    <div>
+                                        <input wire:model="isadmin" class="form-check-input" type="checkbox" id="user-isadmin" />
                                         <label for="user-isadmin">{{ __('Admin Account') }}</label>
                                     </div>
                                 </div>
                             </div>
-                            @error('isadmin') <div class="text-danger">{{ $message }}</div> @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <div class="form-check">
+                                    <div >
+                                        <input wire:model="disabled" class="form-check-input" type="checkbox" id="user-disabled" />
+                                        <label for="user-disabled">{{ __('Disabled') }}</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
+                    <a href="{{ route('user-management') }}" class="btn bg-gradient-primary btn-sm mt-4 mb-4" type="button">Cancel</a>&nbsp;
                         <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
                     </div>
                 </form>

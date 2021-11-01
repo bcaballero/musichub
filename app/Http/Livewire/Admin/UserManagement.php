@@ -7,13 +7,19 @@ use App\Models\User;
 
 class UserManagement extends Component
 {
-    public $showSuccesNotification  = false;
+    public $showSuccesAdd  = false;
+    public $newUser = '';
+    public $showSuccesUpdate  = false;
+    public $updatedUser = '';
 
     public function render()
     {
-        $this->showSuccesNotification = session()->get('success');
+        $this->showSuccesAdd = session()->get('successadd');
+        $this->newUser = session()->get('newuser');
+        $this->showSuccesUpdate = session()->get('successupdate');
+        $this->updatedUser = session()->get('updateduser');
 
-        $users = User::paginate(5);
+        $users = User::paginate(10);
 
         return view('livewire.admin.user-management', [
             'users' => $users

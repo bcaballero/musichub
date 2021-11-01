@@ -15,7 +15,9 @@ class UserUpdate extends Component
         'user.email' => 'required|email:rfc,dns',
         'user.phone' => 'required|digits:11',
         'user.about' => 'max:200',
-        'user.location' => 'min:3'
+        'user.location' => 'min:3',
+        'user.isadmin' => 'boolean',
+        'user.disabled' => 'boolean',
     ];
 
     public function mount(Request $request) { 
@@ -28,7 +30,10 @@ class UserUpdate extends Component
         $this->validate();
         $this->user->save();
 
-        return redirect('/admin/user-management')->with( ['success' => true] );
+        return redirect('/admin/user-management')->with( [
+            'successupdate' => true,
+            'updateduser' => $this->user->name
+        ] );
     }
 
     public function render()

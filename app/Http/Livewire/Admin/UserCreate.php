@@ -15,6 +15,7 @@ class UserCreate extends Component
     public $phone = '';
     public $about = '';
     public $location = '';
+    public $disabled = 0;
 
     protected $rules = [
         'name' => 'required|max:40|min:3',
@@ -33,12 +34,16 @@ class UserCreate extends Component
             'email'     => $this->email,
             'password'  => Hash::make($this->password),
             'isadmin'   => $this->isadmin,
+            'disabled'   => $this->disabled,
             'phone'     => $this->phone,
             'about'     => $this->about,
             'location'  => $this->location
         ]);
 
-        return redirect('/admin/user-management')->with( ['success' => true] );
+        return redirect('/admin/user-management')->with( [
+            'successadd' => true,
+            'newuser' => $user->name
+        ] );
     }
 
     public function render()
