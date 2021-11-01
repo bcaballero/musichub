@@ -18,6 +18,9 @@ use App\Http\Livewire\Admin\UserProfile;
 use App\Http\Livewire\Admin\UserManagement;
 use App\Http\Livewire\Admin\UserCreate;
 use App\Http\Livewire\Admin\UserUpdate;
+use App\Http\Livewire\Admin\MusicManagement;
+use App\Http\Livewire\Admin\MusicCreate;
+use App\Http\Livewire\Admin\MusicUpdate;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,4 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/user-management', UserManagement::class)->name('user-management');
     Route::get('/admin/user-create', UserCreate::class)->name('user-create');
     Route::get('/admin/user-update', UserUpdate::class)->name('user-update');
+    Route::get('/admin/music-management', MusicManagement::class)->name('music-management');
+    Route::get('/admin/music-create', MusicCreate::class)->name('music-create');
+    Route::get('/admin/music-update', MusicUpdate::class)->name('music-update');
 });

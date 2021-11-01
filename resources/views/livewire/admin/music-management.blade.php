@@ -7,7 +7,7 @@
                         class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                         <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                         <span
-                            class="alert-text text-white">{{ $newUser }} {{ __(' was created') }}</span>
+                            class="alert-text text-white">{{ $newMusic }} {{ __(' was uploaded') }}</span>
                         <button wire:click="$set('showSuccesAdd', false); return;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
@@ -18,7 +18,7 @@
                         class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                         <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                         <span
-                            class="alert-text text-white">{{ $updatedUser }} {{ __(' was updated') }}</span>
+                            class="alert-text text-white">{{ $updatedMusic }} {{ __(' was updated') }}</span>
                         <button wire:click="$set('showSuccesUpdate', false); return;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
@@ -27,9 +27,9 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Users</h5>
+                            <h5 class="mb-0">All Music</h5>
                         </div>
-                        <a href="{{ route('user-create') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        <a href="{{ route('music-create') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; Upload Music</a>
                     </div>
                 </div>
                 <div class="card-body pt-4 p-3">
@@ -40,79 +40,62 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         ID
                                     </th>
-                                    <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Photo
-                                    </th> -->
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Name
+                                        Title
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Email
+                                        Singer
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        role
+                                        Path
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        status
+                                        Public
                                     </th>
-                                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Creation Date
-                                    </th> -->
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($musics as $music)
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $user->id }}</p>
-                                    </td>
-                                    <!-- <td>
-                                        <div>
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
-                                        </div>
-                                    </td> -->
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $user->name }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $music->id }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $user->email }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $music->title }}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{ $music->singer }}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{ $music->path }}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">
-                                            @if($user->isadmin)
-                                            <span class="badge badge-sm bg-gradient-info">Admin</span>
+                                            @if($music->public)
+                                            <span class="badge badge-sm bg-gradient-success">Public</span>
                                             @else
-                                            <span class="badge badge-sm bg-gradient-success">Member</span>
+                                            <span class="badge badge-sm bg-gradient-danger">Hidden</span>
                                             @endif
                                         </p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">
-                                            @if($user->disabled)
-                                            <span class="badge badge-sm bg-gradient-danger">Disabled</span>
-                                            @else
-                                            <span class="badge badge-sm bg-gradient-success">Active</span>
-                                            @endif
-                                        </p>
-                                    </td>
-                                    <!-- <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ $user->created_at }}</span>
-                                    </td> -->
-                                    <td class="text-center">
-                                        <a href="{{ route('user-update') }}?id={{$user->id}}" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
+                                        <a href="{{ route('music-update') }}?id={{$music->id}}" class="mx-3" data-bs-toggle="tooltip"
+                                            data-bs-original-title="Edit music">
                                             <i class="fas fa-user-edit text-secondary"></i>
                                         </a>
+                                        <span>
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </span>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
-                    {{ $users->links() }}
+                    {{ $musics->links() }}
                 </div>
             </div>
         </div>
