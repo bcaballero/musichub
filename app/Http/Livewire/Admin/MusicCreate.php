@@ -43,7 +43,8 @@ class MusicCreate extends Component
                 'newmusic' => $music->title
             ] );
         }
-        else{
+        else
+        {
             return $this->addError('title', 'Cannot save file.'); 
         }
     }
