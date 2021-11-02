@@ -24,6 +24,10 @@ use App\Http\Livewire\Admin\MusicUpdate;
 use App\Http\Livewire\Admin\MusicRemove;
 
 use App\Http\Livewire\BrowseMusic;
+use App\Http\Livewire\ManageGuestCart;
+use App\Http\Livewire\AddGuestCart;
+use App\Http\Livewire\DeleteGuestCart;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +46,9 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 
 Route::get('/browse-music', BrowseMusic::class)->name('browse-music');
+Route::get('/cart', ManageGuestCart::class)->name('cart');
+Route::get('/music-preview', AddGuestCart::class)->name('music-preview');
+Route::get('/remove-from-cart', DeleteGuestCart::class)->name('remove-from-cart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

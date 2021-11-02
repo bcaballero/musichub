@@ -15,7 +15,7 @@ class CreateGuestCartsTable extends Migration
     {
         Schema::create('guest_carts', function (Blueprint $table) {
             $table->id();
-            $table->string('sessionid')->unique();
+            $table->string('sessionid');
             $table->integer('musicid');
             $table->timestamps();
         });

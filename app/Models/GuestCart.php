@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class GuestCart extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'sessionid',
+        'musicid'
+    ];
 }
