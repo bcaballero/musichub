@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center">
-                        <a class="nav-link text-dark me-2 text-dark" href="{{ route('sign-up') }}">
+                        <a class="nav-link text-dark me-2 text-dark" href="{{ route('login') }}">
                             <i class="fas fa-key opacity-6 text-dark me-1" aria-hidden="true"></i>
                             Sign In
                         </a>

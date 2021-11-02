@@ -13,7 +13,8 @@ class Music extends Model
         'title',
         'singer',
         'path',
-        'public'
+        'public',
+        'amount'
     ];
 
     protected $hidden = [

@@ -71,7 +71,25 @@
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Member</h6>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link {{ in_array(request()->route()->getName(),['browse-music','music-preview'],) ? 'active' : '' }}"
+                    href="{{ route('browse-music') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-note-03 text-dark"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Browse Music</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ in_array(request()->route()->getName(),['cart','remove-from-cart'],) ? 'active' : '' }}"
+                    href="{{ route('cart') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-cart text-dark"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Cart</span>
+                </a>
+            </li>
+<!-- 
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'tables' ? 'active' : '' }}"
                     href="{{ route('tables') }}">
@@ -191,7 +209,7 @@
                     <span class="nav-link-text ms-1">Profile</span>
                 </a>
             </li>
-
+-->
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'my-profile' ? 'active' : '' }}"
                     href="{{ route('my-profile') }}">

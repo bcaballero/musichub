@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="music-file">{{ __('Mp3') }}</label>
                                 <div class="@error('file')border border-danger rounded-3 @enderror">
@@ -40,7 +40,16 @@
                                 @error('file') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="music-amount">{{ __('Amount') }}</label>
+                                <div class="@error('music.amount')border border-danger rounded-3 @enderror">
+                                    <input wire:model="music.amount" class="form-control" type="decimal" value="0.00" id="music-price">
+                                </div>
+                                @error('music.amount') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <div>
                                 <div class="form-check">
                                     <div>

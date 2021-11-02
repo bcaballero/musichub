@@ -16,11 +16,13 @@ class MusicCreate extends Component
     public $path = '';
     public $public = 0;
     public $file;
+    public $amount = 0.00;
 
     protected $rules = [
         'title' => 'required',
         'singer' => 'required',
-        'file' => 'required|mimes:mp3'
+        'file' => 'required|mimes:mp3',
+        'amount' => 'required|numeric'
     ];
 
     public function save()
@@ -35,7 +37,8 @@ class MusicCreate extends Component
                 'title'     => $this->title,
                 'singer'    => $this->singer,
                 'path'      => $this->path,
-                'public'    => $this->public
+                'public'    => $this->public,
+                'amount'     => $this->amount
             ]);    
 
             return redirect('/admin/music-management')->with( [

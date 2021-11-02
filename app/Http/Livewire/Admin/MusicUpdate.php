@@ -18,7 +18,8 @@ class MusicUpdate extends Component
     protected $rules = [
         'music.title' => 'required',
         'music.singer' => 'required',
-        'music.public' => 'boolean'
+        'music.public' => 'boolean',
+        'music.amount' => 'required|numeric'
     ];
 
     public function mount(Request $request)
