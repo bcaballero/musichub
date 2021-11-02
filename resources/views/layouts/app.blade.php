@@ -53,7 +53,8 @@
                 {{ $slot }}
                 @include('layouts.footers.guest.with-socials')
             </div>
-        @elseif (!auth()->check() && in_array(request()->route()->getName(),['browse-music','cart','music-preview','remove-from-cart'],))
+        @elseif (!auth()->check() && in_array(request()->route()->getName(),
+            ['browse-music','cart','music-preview','remove-from-cart','checkout'],))
             @include('layouts.navbars.guest.sidebar')
             @include('layouts.navbars.guest.nav')
             @include('components.plugins.fixed-plugin')

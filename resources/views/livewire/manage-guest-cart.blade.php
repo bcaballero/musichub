@@ -38,6 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if ($cart->count() > 0)
                             @foreach ($cart as $music)
                                 <tr>
                                     <td class="text-left">
@@ -53,9 +54,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                @php
-                                $totalAmount += $music->amount
-                                @endphp
                             @endforeach
                                 <tr>
                                     <td class="text-center">
@@ -65,9 +63,16 @@
                                         <p class="text-xs font-weight-bold mb-0">$ {{ number_format($totalAmount,2) }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">$ Checkout</a>
+                                        <a href="{{ route('checkout') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">$ Checkout</a>
                                     </td>
                                 </tr>
+                            @else
+                                <tr>
+                                    <td class="text-center">&nbsp;</td>
+                                    <td class="text-center">Your cart is empty.</td>
+                                    <td class="text-center">&nbsp;</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

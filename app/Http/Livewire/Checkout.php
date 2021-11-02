@@ -6,11 +6,18 @@ use Livewire\Component;
 use App\Models\GuestCart;
 use Session;
 
-class ManageGuestCart extends Component
+class Checkout extends Component
 {
-    public $showSuccesRemove  = false;
-    public $removedMusic = '';
+    public $name = '';
+    public $email = '';
+    public $phone = '';
     public $totalAmount = 0.00;
+
+    protected $rules = [
+        'name' => 'required|max:40|min:3',
+        'email' => 'required|email:rfc,dns',
+        'phone' => 'required|digits:11'
+    ];
 
     public function render()
     {
@@ -24,7 +31,7 @@ class ManageGuestCart extends Component
                                 ->where('guest_carts.sessionid','=',$currentsession)
                                 ->sum('music.amount');
 
-        return view('livewire.manage-guest-cart', [
+        return view('livewire.checkout', [
             'cart' => $cart
         ]);
     }

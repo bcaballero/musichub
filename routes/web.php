@@ -27,6 +27,7 @@ use App\Http\Livewire\BrowseMusic;
 use App\Http\Livewire\ManageGuestCart;
 use App\Http\Livewire\AddGuestCart;
 use App\Http\Livewire\DeleteGuestCart;
+use App\Http\Livewire\Checkout;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::get('/browse-music', BrowseMusic::class)->name('browse-music');
 Route::get('/cart', ManageGuestCart::class)->name('cart');
 Route::get('/music-preview', AddGuestCart::class)->name('music-preview');
 Route::get('/remove-from-cart', DeleteGuestCart::class)->name('remove-from-cart');
+Route::get('/checkout', Checkout::class)->name('checkout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

@@ -177,10 +177,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.phone" class="form-control-label">{{ __('Phone') }}</label>
+                                <label for="user-phone" class="form-control-label">{{ __('Phone') }}</label>
                                 <div class="@error('user.phone')border border-danger rounded-3 @enderror">
                                     <input wire:model="user.phone" class="form-control" type="tel"
-                                        placeholder="40770888444" id="phone">
+                                        placeholder="40770888444" id="user-phone">
                                 </div>
                                 @error('user.phone') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
