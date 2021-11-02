@@ -51,7 +51,6 @@ Route::get('/music-preview', AddGuestCart::class)->name('music-preview');
 Route::get('/remove-from-cart', DeleteGuestCart::class)->name('remove-from-cart');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/my-profile', UserProfile::class)->name('my-profile');
     

@@ -26,11 +26,11 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Title
+                                    <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Music
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Singer
+                                        Amount
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         &nbsp;
@@ -40,11 +40,11 @@
                             <tbody>
                             @foreach ($cart as $music)
                                 <tr>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $music->title }}</p>
+                                    <td class="text-left">
+                                        <p class="text-xs font-weight-bold mb-0">"{{ $music->title }}" by {{ $music->singer }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $music->singer }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">$ {{ number_format($music->amount,2) }}</p>
                                     </td>
                                     <td class="text-center">
                                         <a href="{{ route('remove-from-cart') }}?id={{$music->id}}" class="mx-3" data-bs-toggle="tooltip"
@@ -53,7 +53,21 @@
                                         </a>
                                     </td>
                                 </tr>
+                                @php
+                                $totalAmount += $music->amount
+                                @endphp
                             @endforeach
+                                <tr>
+                                    <td class="text-center">
+                                        &nbsp;
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">$ {{ number_format($totalAmount,2) }}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">$ Checkout</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

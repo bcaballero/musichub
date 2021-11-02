@@ -11,9 +11,9 @@
                             <p class="mb-1 pt-2 text-bold">{{ $music->singer }}</p>
                             <h5 class="font-weight-bolder">{{ $music->title }}</h5>
                             <!-- <p class="mb-5">From colors, cards, typography to complex elements, you will find the full documentation.</p>-->
-                            <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{ route('music-preview') }}?id={{$music->id}}">
-                            Add to Cart
-                            <i class="fas fa-plus text-sm ms-1" aria-hidden="true"></i>
+                            <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{ route('music-preview') }}?id={{$music->id}}" title="{{ __('Add to Cart')}}">
+                                $ {{ number_format($music->amount,2) }}
+                                <i class="fas fa-plus text-sm ms-1" aria-hidden="true"></i>
                             </a>
                         </div>
                         </div>
