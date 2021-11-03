@@ -18,7 +18,7 @@
                         <div>
                             <h5 class="mb-0">Cart</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">$ Checkout</a>
+                        <a href="{{ route('browse-music') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">Continue Browsing</a>
                     </div>
                 </div>
                 <div class="card-body pt-4 p-3">
@@ -57,7 +57,7 @@
                             @endforeach
                                 <tr>
                                     <td class="text-center">
-                                        &nbsp;
+                                        TOTAL AMOUNT
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">$ {{ number_format($totalAmount,2) }}</p>
