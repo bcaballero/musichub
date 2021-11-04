@@ -13,7 +13,7 @@ class AddColumnCartUserid extends Migration
      */
     public function up()
     {
-        Schema::table('guest_carts', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             $table->integer('userid')->default(0);
         });
     }
@@ -25,7 +25,7 @@ class AddColumnCartUserid extends Migration
      */
     public function down()
     {
-        Schema::table('guest_carts', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             $table->dropColumn('userid');
         });
     }

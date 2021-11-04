@@ -24,9 +24,9 @@ use App\Http\Livewire\Admin\MusicUpdate;
 use App\Http\Livewire\Admin\MusicRemove;
 
 use App\Http\Livewire\BrowseMusic;
-use App\Http\Livewire\ManageGuestCart;
-use App\Http\Livewire\AddGuestCart;
-use App\Http\Livewire\DeleteGuestCart;
+use App\Http\Livewire\ManageCart;
+use App\Http\Livewire\AddCart;
+use App\Http\Livewire\DeleteCart;
 use App\Http\Livewire\Checkout;
 
 /*
@@ -47,9 +47,9 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 
 Route::get('/browse-music', BrowseMusic::class)->name('browse-music');
-Route::get('/cart', ManageGuestCart::class)->name('cart');
-Route::get('/music-preview', AddGuestCart::class)->name('music-preview');
-Route::get('/remove-from-cart', DeleteGuestCart::class)->name('remove-from-cart');
+Route::get('/cart', ManageCart::class)->name('cart');
+Route::get('/music-preview', AddCart::class)->name('music-preview');
+Route::get('/remove-from-cart', DeleteCart::class)->name('remove-from-cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 
 Route::middleware('auth')->group(function () {

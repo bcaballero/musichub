@@ -4,11 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Music;
-use App\Models\GuestCart;
+use App\Models\Cart;
 use Session;
 use Illuminate\Http\Request;
 
-class AddGuestCart extends Component
+class AddCart extends Component
 {
     public Music $music;
 
@@ -21,7 +21,7 @@ class AddGuestCart extends Component
     {
         $currentsession = Session::getId();
 
-        $newcart = GuestCart::firstOrCreate([
+        $newcart = Cart::firstOrCreate([
             'sessionid'     => $currentsession,
             'musicid'    => $this->music->id
         ]);
@@ -33,6 +33,6 @@ class AddGuestCart extends Component
 
     public function render()
     {
-        return view('livewire.add-guest-cart');
+        return view('livewire.add-cart');
     }
 }

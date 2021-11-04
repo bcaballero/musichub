@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\GuestCart;
+use App\Models\Cart;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Session;
@@ -45,7 +45,7 @@ class Checkout extends Component
             ]);
         }
 
-        GuestCart::where([
+        Cart::where([
             'sessionid' => $this->currentsession,
             'userid' => auth()->user() ? auth()->user->id : 0
         ])->delete();
@@ -54,11 +54,11 @@ class Checkout extends Component
     public function render()
     {
         $this->currentsession = Session::getId();
-        $this->cart = GuestCart::join('music', 'music.id', '=', 'guest_carts.musicid')
-                                ->where('guest_carts.sessionid','=',$this->currentsession)
-                                ->get(['guest_carts.id','music.title','music.singer','music.amount']);
-        $this->totalAmount = GuestCart::join('music', 'music.id', '=', 'guest_carts.musicid')
-                                ->where('guest_carts.sessionid','=',$this->currentsession)
+        $this->cart = Cart::join('music', 'music.id', '=', 'carts.musicid')
+                                ->where('carts.sessionid','=',$this->currentsession)
+                                ->get(['carts.id','music.title','music.singer','music.amount']);
+        $this->totalAmount = Cart::join('music', 'music.id', '=', 'carts.musicid')
+                                ->where('carts.sessionid','=',$this->currentsession)
                                 ->sum('music.amount');
 
         return view('livewire.checkout',[

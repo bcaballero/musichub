@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'brian.caballero1204@gmail.com',
             'password' => Hash::make('qwaszx1234'),
+            'phone' => '09175666759',
             'isadmin' => true
         ]);
     }

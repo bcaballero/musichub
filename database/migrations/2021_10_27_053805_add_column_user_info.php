@@ -14,9 +14,9 @@ class AddColumnUserInfo extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone',11);
-            $table->string('about', 200);
-            $table->string('location', 200);
+            $table->string('phone',11)->default('');
+            $table->string('about', 200)->default('');
+            $table->string('location', 200)->default('');
         });
     }
 

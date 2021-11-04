@@ -4,19 +4,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Music;
-use App\Models\GuestCart;
+use App\Models\Cart;
 use Session;
 use Illuminate\Http\Request;
 
 
-class DeleteGuestCart extends Component
+class DeleteCart extends Component
 {
-    public GuestCart $cart;
+    public Cart $cart;
     public Music $music;
 
     public function mount(Request $request)
     { 
-        $this->cart = GuestCart::find($request->id);
+        $this->cart = Cart::find($request->id);
     }
 
     public function save()
@@ -37,6 +37,6 @@ class DeleteGuestCart extends Component
 
         $this->music = Music::find($this->cart->musicid);
 
-        return view('livewire.delete-guest-cart');
+        return view('livewire.delete-cart');
     }
 }
