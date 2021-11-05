@@ -28,6 +28,7 @@ use App\Http\Livewire\ManageCart;
 use App\Http\Livewire\AddCart;
 use App\Http\Livewire\DeleteCart;
 use App\Http\Livewire\Checkout;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,9 @@ Route::get('/cart', ManageCart::class)->name('cart');
 Route::get('/music-preview', AddCart::class)->name('music-preview');
 Route::get('/remove-from-cart', DeleteCart::class)->name('remove-from-cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
+
+Route::get('paymentsuccess', [PaymentController::class,'payment_success']);
+Route::get('paymenterror', [PaymentController::class, 'payment_error']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

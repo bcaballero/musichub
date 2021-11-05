@@ -11,8 +11,9 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/omnipay": "^3.2",
         "livewire/livewire": "^2.7",
-        "luigel/laravel-paymongo": "^1.4"
+        "omnipay/paypal": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

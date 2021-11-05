@@ -29,6 +29,7 @@ class UserCreate extends Component
     public function save()
     {
         $this->validate();
+        
         $user = User::create([
             'name'      => $this->name,
             'email'     => $this->email,

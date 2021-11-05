@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form wire:submit.prevent="placeOrder" action="#" method="POST" role="form text-left">
+                    <form wire:submit.prevent="pay" action="#" method="POST" role="form text-left">
                         <div class="form-group">
                             <label for="user-name" class="form-control-label">{{ __('Full Name') }}</label>
                             <div class="@error('name')border border-danger rounded-3 @enderror">
